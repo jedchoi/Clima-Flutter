@@ -1,8 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-const String apiKey = 'b6907d289e10d714a6e88b30761fae22';
-
 class NetworkHelper {
   NetworkHelper({this.url});
   final String url;
@@ -11,9 +9,10 @@ class NetworkHelper {
 
     if (response.statusCode == 200) {
       String data = response.body;
+      print(data);
       return jsonDecode(data);
     } else {
-      print(response.statusCode);
+      print('error: ${response.statusCode}');
     }
   }
 }
